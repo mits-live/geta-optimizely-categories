@@ -55,10 +55,15 @@ namespace Geta.Optimizely.Categories
         [Editable(false)]
         public override bool IsSelectable { get; set; }
 
+        [Display(Order = 40)]
+        [CultureSpecific]
+        public virtual bool IsActive { get; set; }
+
         public override void SetDefaultValues(ContentType contentType)
         {
             base.SetDefaultValues(contentType);
             IsSelectable = false;
+            IsActive = false;
         }
 
         private string GetLocalizedAssetsFolderName(string name)

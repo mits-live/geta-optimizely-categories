@@ -19,11 +19,13 @@ namespace Geta.Optimizely.Categories
 
             DisableCategoryAsLinkableType = configuration.DisableCategoryAsLinkableType;
             HideDisallowedRootCategories = configuration.HideDisallowedRootCategories;
+            UseAlternativeCategoryRootLogic = configuration.UseAlternativeCategoryRootLogic;
         }
 
         public int GlobalCategoriesRoot => _contentRepository.GetOrCreateGlobalCategoriesRoot().ID;
         public int SiteCategoriesRoot => _contentRepository.GetOrCreateSiteCategoriesRoot().ID;
         public bool DisableCategoryAsLinkableType { get; set; }
         public bool HideDisallowedRootCategories { get; set; }
+        public bool UseAlternativeCategoryRootLogic { get; set; }
     }
 }

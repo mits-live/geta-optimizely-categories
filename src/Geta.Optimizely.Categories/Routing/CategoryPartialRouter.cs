@@ -47,20 +47,20 @@ namespace Geta.Optimizely.Categories.Routing
                 return null;
             }
 
-            var thisSegment = segmentContext.RemainingPath;
-            var nextSegment = segmentContext.GetNextRemainingSegment(segmentContext.RemainingPath);
+            var thisSegment = segmentContext.RemainingSegments;
+            var nextSegment = segmentContext.GetNextSegment(segmentContext.RemainingSegments);
 
-            while (!string.IsNullOrEmpty(nextSegment.Remaining))
+            while (!string.IsNullOrEmpty(nextSegment.Remaining.ToString()))
             {
-                nextSegment = segmentContext.GetNextRemainingSegment(nextSegment.Remaining);
+                nextSegment = segmentContext.GetNextSegment(nextSegment.Remaining);
             }
 
-            if (!string.IsNullOrWhiteSpace(nextSegment.Next))
+            if (!string.IsNullOrWhiteSpace(nextSegment.Next.ToString()))
             {
                 var localizableContent = content as ILocale;
                 var preferredCulture = localizableContent?.Language ?? ContentLanguage.PreferredCulture;
 
-                var categoryUrlSegments = nextSegment.Next.Split(new [] { CategorySeparator }, StringSplitOptions.RemoveEmptyEntries);
+                var categoryUrlSegments = nextSegment.Next.ToString().Split(new [] { CategorySeparator }, StringSplitOptions.RemoveEmptyEntries);
                 // Verify that all categories exist
                 foreach (var categoryUrlSegment in categoryUrlSegments)
                 {
@@ -71,7 +71,9 @@ namespace Geta.Optimizely.Categories.Routing
                     }
                 }
 
-                segmentContext.RemainingPath = thisSegment.Substring(0, thisSegment.LastIndexOf(nextSegment.Next, StringComparison.InvariantCultureIgnoreCase));
+                var thisSegmentStr = thisSegment.ToString();
+                var remainingSegmentsStr = thisSegmentStr[..thisSegmentStr.LastIndexOf(nextSegment.Next.ToString(), StringComparison.InvariantCultureIgnoreCase)];
+                segmentContext.RemainingSegments = remainingSegmentsStr.AsMemory();
 
                 HttpContext.Request.RouteValues.Add(CategoryRoutingConstants.CurrentCategories, categoryUrlSegments);
 

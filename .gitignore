@@ -268,3 +268,6 @@ __pycache__/
 # tools/
 
 App_Data/
+
+# Private NuGet Builds
+[Nn]uget_[Pp]rivate/*.nupkg
