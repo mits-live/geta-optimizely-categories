@@ -9,5 +9,6 @@ namespace Geta.Optimizely.Categories.Configuration
         public bool DisableCategoryAsLinkableType { get; set; }
         public bool HideDisallowedRootCategories { get; set; }
         public bool ShowDefaultCategoryProperty { get; set; }
+        public bool UseAlternativeCategoryRootLogic { get; set; }
     }
 }

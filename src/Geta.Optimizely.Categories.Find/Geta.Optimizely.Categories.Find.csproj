@@ -1,20 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <PackageId>Geta.Optimizely.Categories.Find</PackageId>
     <Title>Geta Optimizely Categories Find</Title>
     <Authors>Geta Digital</Authors>
     <Company>Geta Digital</Company>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/Geta/geta-optimizely-categories</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/mits-live/geta-optimizely-categories</PackageProjectUrl>
     <PackageIcon>icon.png</PackageIcon>
     <PackageIconUrl>https://cdn.geta.no/opensource/icons/Geta-logo-3.png</PackageIconUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>Find extensions for Geta Optimizely Catalog</Description>
-    <PackageReleaseNotes>https://github.com/Geta/geta-optimizely-categories/blob/master/CHANGELOG.md</PackageReleaseNotes>
+    <Description>Find extensions for Geta Optimizely Catalog. Private build.</Description>
+    <PackageReleaseNotes>https://github.com/mits-live/geta-optimizely-categories/blob/master/CHANGELOG.md</PackageReleaseNotes>
     <PackageTags>Geta Optimizely Categories Find</PackageTags>
-    <RepositoryUrl>https://github.com/Geta/geta-optimizely-categories.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/mits-live/geta-optimizely-categories.git</RepositoryUrl>
+    <Version></Version>
   </PropertyGroup>
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
@@ -26,7 +27,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="EPiServer.Find.Cms" Version="14.0.4" />
+    <PackageReference Include="EPiServer.CMS.AspNetCore.Routing" Version="12.8.0" />
+    <PackageReference Include="EPiServer.CMS.AspNetCore.Mvc" Version="12.8.0" />
+    <PackageReference Include="EPiServer.CMS.AspNetCore.HtmlHelpers" Version="12.8.0" />
+    <PackageReference Include="EPiServer.Find.Cms" Version="14.2.1" />
+    <PackageReference Include="System.Linq.Async" Version="6.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Geta.Optimizely.Categories\Geta.Optimizely.Categories.csproj" />
