@@ -2,7 +2,6 @@ using AlloyDemoDotNet6.Extensions;
 using EPiServer.Cms.Shell;
 using EPiServer.Cms.UI.AspNetIdentity;
 using EPiServer.Scheduler;
-using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
 using Geta.Optimizely.Categories.Configuration;
 using Geta.Optimizely.Categories.Infrastructure.Initialization;
@@ -44,10 +43,7 @@ public class Startup
             options.Cookie.IsEssential = true;
         });
 
-        services.AddGetaCategories(options =>
-        {
-            options.UseAlternativeCategoryRootLogic = true;
-        });
+        services.AddGetaCategories();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
